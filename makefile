@@ -6,7 +6,7 @@ clean:
 	rm -f mineSweeper
 
 mineSweeper: src/main.cpp
-	g++ src/main.cpp src/mineSweeper.cpp include/mineSweeper.h -o mineSweeper
+	g++ src/main.cpp src/mineSweeper.cpp include/mineSweeper.h include/split.h include/colors.h include/global.h -o mineSweeper
 
 install:
 	mkdir -p $(DESTDIR)/usr/bin
