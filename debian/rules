@@ -22,4 +22,15 @@
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 #override_dh_auto_configure:
 #	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+clean:
+	make clean
 
+build:
+	make
+
+binary:
+	make install DESTDIR=debian/minesweeper
+	strip --strip-all debian/minesweeper/usr/bin/minesweeper
+	dh_makeshlibs
+	dh_gencontrol
+	dh_builddeb

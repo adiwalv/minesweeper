@@ -1,3 +1,4 @@
-minesweeper-dbgsym_1.0_amd64.ddeb debug optional
-minesweeper_1.0_amd64.buildinfo games optional
-minesweeper_1.0_amd64.deb games optional
+minesweeper-dbgsym_1.1ppa1_amd64.ddeb debug optional
+minesweeper_1.0_source.buildinfo games optional
+minesweeper_1.1ppa1_amd64.buildinfo games optional
+minesweeper_1.1ppa1_amd64.deb games optional

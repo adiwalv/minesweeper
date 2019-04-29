@@ -1,16 +1,16 @@
 .PHONY: all clean install
 
-all: mineSweeper
+all: minesweeper
 
 clean:
-	rm -f mineSweeper
+	rm -f minesweeper
 
-mineSweeper: src/main.cpp
-	g++ src/main.cpp src/mineSweeper.cpp include/mineSweeper.h include/split.h include/colors.h include/global.h -o mineSweeper
+minesweeper: src/main.cpp
+	g++ src/main.cpp src/mineSweeper.cpp include/mineSweeper.h include/split.h include/colors.h include/global.h -o minesweeper
 
 install:
 	mkdir -p $(DESTDIR)/usr/bin
-	cp mineSweeper $(DESTDIR)/usr/bin/mineSweeper
+	cp minesweeper $(DESTDIR)/usr/bin/minesweeper
 
 uninstall:
-	rm $(DESTDIR)/usr/bin/mineSweeper
+	rm $(DESTDIR)/usr/bin/minesweeper

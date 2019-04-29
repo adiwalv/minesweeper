@@ -1,12 +1,12 @@
 Package: minesweeper-dbgsym
 Package-Type: ddeb
 Source: minesweeper
-Version: 1.0
+Version: 1.1ppa1
 Auto-Built-Package: debug-symbols
 Architecture: amd64
 Maintainer: Vikas Adiwal <adiwalv@gmail.com>
-Installed-Size: 32
-Depends: minesweeper (= 1.0)
+Installed-Size: 34
+Depends: minesweeper (= 1.1ppa1)
 Section: debug
 Priority: optional
 Description: debug symbols for minesweeper

@@ -1,3 +1,15 @@
+minesweeper (1.0) bionic; urgency=emergency
+
+  * created minesweeper
+
+ -- Vikas Adiwal <adiwalv@gmail.com>  Mon, 29 Apr 2019 20:39:21 +0530
+
+minesweeper (1.1ppa1) bionic; urgency=emergency
+
+  * added colors
+
+ -- Vikas Adiwal <adiwalv@gmail.com>  Mon, 29 Apr 2019 20:06:01 +0530
+
 minesweeper (1.0) unstable; urgency=medium
 
   * Initial Release.
