@@ -8,6 +8,7 @@
 
 int main(int argc, char **argv){
     cout << BOLD(FBLU("| ---------- Welcome To MineSweeper ---------- |")) << endl;
+    cout << FCYN("       ========== The classic ========== ") << endl;
     mineSweeper mS;
     mS.init_grid();
     mS.print_grid();
