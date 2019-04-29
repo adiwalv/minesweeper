@@ -54,3 +54,17 @@ void mineSweeper::print_grid(){
 	}
 	cout << '\n';
 }
+
+
+bool mineSweeper::gameWon(){
+	unsigned count = 0;
+	for(auto &row : grid){
+		for(auto &tile : row){
+			if(tile == '#') count++;
+			if(count > :: row){
+				return false;
+			}
+		}
+	}
+	return true;
+}
