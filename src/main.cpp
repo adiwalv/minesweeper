@@ -25,8 +25,8 @@ int main(int argc, char **argv){
 		if(input.length() > 2){
 			try{
 				v = split(input);
-				xPos = std::stoi(v[0]);
-				yPos = std::stoi(v[1]);
+				xPos = stoi(v[0]);
+				yPos = stoi(v[1]);
 				if((xPos >= 0 && xPos < row)&&(yPos >= 0 && yPos < col)){
 					mS.mark(xPos,yPos);
 					clearScreen();
@@ -36,21 +36,21 @@ int main(int argc, char **argv){
 					mS.print_grid();
 					if(mS.getMineHit()){
 						gameOver = true;
-						std::cout << "You hit a mine!\n- Game Over -" << std::endl;
+						cout <<BOLD(FRED( "You hit a mine!\n- Game Over -" ))<< std::endl;
 					} else if(mS.gameWon()){
 						gameOver = true;
-						std::cout << "Congratulations!\n- You beat Minesweeper! -" << std::endl;
+						cout <<BOLD(FGRN( "Congratulations!\n- You beat Minesweeper! -" ))<< endl;
 					}
 				} else {
-					std::cout << "Please use integers in the range of 0 to " << domain << '\n';
+					cout << BOLD(FRED("Please use integers in the range of 0 to " ))<< domain << '\n';
 				}
 			}
 			catch(int e){
-				std::cerr << "An Exception Occurred. " << e << std::endl;;
+				cerr << "An Exception Occurred. " << e << std::endl;;
 			}
 		}
 		else if(input !="q" && input !="Q") {
-			std::cout << "Please use 2 integers in the range of 0 to " << domain << " separated by a comma\n";
+			cout << BOLD(FRED("Please use 2 integers in the range of 0 to ")) << domain << BOLD(FRED(" separated by a comma\n"));
 		}
 	}
 
