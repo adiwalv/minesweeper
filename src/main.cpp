@@ -8,5 +8,8 @@
 
 int main(int argc, char **argv){
     cout << BOLD(FBLU("| ---------- Welcome To MineSweeper ---------- |")) << endl;
+    mineSweeper mS;
+    mS.init_grid();
+    mS.print_grid();
     return 0;
 }

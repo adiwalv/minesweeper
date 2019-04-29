@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../include/mineSweeper.h"
+#include "../include/colors.h"
 #include <cstdlib>
 #include <time.h>
 
@@ -16,15 +17,36 @@ bool mineSweeper::getMineHit() {
 }
 
 
+void mineSweeper::init_grid(){
+	srand(time(NULL));
+	for(auto &row : grid){
+		row.fill('#');
+	}
+	
+	for(auto &row : mines){
+		row.fill('o');
+	}
+	
+	for(int i = 0; i < row; i++){
+		int x = rand() % row;
+		int y = rand() % col;
+		mines[x][y] = 'x';
+	}
+}
+
+
+
 void mineSweeper::print_grid(){
 	unsigned short i;
-	cout << "    ";
-	for(i = 0; i < row; i++) cout << ' ' << i;
+	cout << BOLD(FBLU("    ")) << endl;
+	for(i = 0; i < row; i++)
+		cout << BOLD(FBLU(" ")) << i;
 	cout << "\n    ";
-	for(i = 0; i < row; i++) cout << "--";
+	for(i = 0; i < row; i++) 
+		cout << BOLD(FGRN("--"));
 	cout << '\n';
 	for(i = 0; i < row; i++){
-		cout << ' ' << i << " | ";
+		cout << BOLD(FGRN(" ")) << i << BOLD(FGRN(" | "));
 		for(unsigned short j = 0; j < col; j++){
 			cout << grid[i][j] << ' ';
 		}
@@ -32,4 +54,3 @@ void mineSweeper::print_grid(){
 	}
 	cout << '\n';
 }
-
