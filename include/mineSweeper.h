@@ -20,4 +20,4 @@ class mineSweeper {
 		char howNear(unsigned x, unsigned y);
 		bool getMineHit();
 		bool gameWon();
-}    
+};

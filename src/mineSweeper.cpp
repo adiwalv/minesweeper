@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/minesweeper.h"
+#include "../include/mineSweeper.h"
 #include <cstdlib>
 #include <time.h>
 
@@ -16,7 +16,7 @@ bool mineSweeper::getMineHit() {
 }
 
 
-void minesweeper::print_grid(){
+void mineSweeper::print_grid(){
 	unsigned short i;
 	cout << "    ";
 	for(i = 0; i < row; i++) cout << ' ' << i;
