@@ -1,0 +1,15 @@
+Source: minesweeper
+Section: games
+Priority: optional
+Maintainer: Vikas Adiwal <adiwalv@gmail.com>
+Build-Depends: debhelper (>= 8), build-essential 
+Standards-Version: 4.1.2
+Homepage: https://gitlab.com/vikasadiwal/minesweeper
+#Vcs-Git: https://anonscm.debian.org/git/collab-maint/minesweeper.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/minesweeper.git
+
+Package: minesweeper
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: MineSweeper - The Classic
+ Bringing back the classic game to your linux box

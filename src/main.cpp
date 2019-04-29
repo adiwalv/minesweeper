@@ -20,22 +20,24 @@ int main(int argc, char **argv){
     mS.print_grid();
 
     while((!gameOver)&&(input != "q")&&(input != "Q")){
-		cout << "Enter a Row, Column coordinate (example: 1,2) or press q to quit: ";
+		cout << "Enter a Row, Column co-ordinate (example: 1,2) or press q to quit: ";
 		cin >> input;
 		if(input.length() > 2){
 			try{
 				v = split(input);
 				xPos = std::stoi(v[0]);
 				yPos = std::stoi(v[1]);
-				if((xPos >= 0 && xPos < ROW)&&(yPos >= 0 && yPos < COL)){
-					ms.mark(xPos,yPos);
+				if((xPos >= 0 && xPos < row)&&(yPos >= 0 && yPos < col)){
+					mS.mark(xPos,yPos);
 					clearScreen();
-					std::cout << title;
-					ms.print_grid();
-					if(ms.getMineHit()){
+                    cout << BOLD(FBLU("| ---------- Welcome To MineSweeper ---------- |")) << endl;
+    cout << FCYN("       ========== The classic ========== ") << endl;
+    
+					mS.print_grid();
+					if(mS.getMineHit()){
 						gameOver = true;
 						std::cout << "You hit a mine!\n- Game Over -" << std::endl;
-					} else if(ms.gameWon()){
+					} else if(mS.gameWon()){
 						gameOver = true;
 						std::cout << "Congratulations!\n- You beat Minesweeper! -" << std::endl;
 					}
