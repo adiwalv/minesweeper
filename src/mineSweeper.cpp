@@ -36,23 +36,142 @@ void mineSweeper::init_grid(){
 
 
 
+
 void mineSweeper::print_grid(){
 	unsigned short i;
-	cout << BOLD(FBLU("    ")) << endl;
+	cout<<endl;
+	cout << "    ";
 	for(i = 0; i < row; i++)
-		cout << BOLD(FBLU(" ")) << i;
+	 cout << ' ' << i;
 	cout << "\n    ";
-	for(i = 0; i < row; i++) 
-		cout << BOLD(FGRN("--"));
-	cout << '\n';
+	for(i = 0; i < row; i++)
+	 cout << BOLD(FGRN("--"));
+	cout << endl;
 	for(i = 0; i < row; i++){
-		cout << BOLD(FGRN(" ")) << i << BOLD(FGRN(" | "));
+		cout << ' ' << i << BOLD(FGRN(" | "));
 		for(unsigned short j = 0; j < col; j++){
 			cout << grid[i][j] << ' ';
 		}
-		cout << '\n';
+		cout <<endl;
 	}
-	cout << '\n';
+	cout <<endl;
+}
+
+
+
+
+void mineSweeper::mark(unsigned x, unsigned y){
+	if(x < row && y < row){
+		if(grid[x][y] == '#'){
+			if(isMine(x,y)){
+				grid[x][y] = 'X';
+				mineHitOrNot = true; 
+			}
+			else {
+				grid[x][y] = howNear(x,y);
+				if(grid[x][y] == '0'){
+					clear_empty(x,y);
+				}
+			}
+		}
+		else std::cout << "Try again.\n";
+	}
+}
+
+void mineSweeper::clear_empty(unsigned x, unsigned y){
+	
+	if(x > 0){
+		if(!marked(x-1,y)){
+			grid[x-1][y] = howNear(x-1,y);
+			if(grid[x-1][y] == '0'){
+				clear_empty(x-1,y);
+			}
+		}
+	}
+	if(y > 0){
+		if(!marked(x,y-1)){
+			grid[x][y-1] = howNear(x,y-1);
+			if(grid[x][y-1] == '0'){
+				clear_empty(x,y-1);
+			}
+		}
+	}
+	if(x > 0 && y > 0){
+		if(!marked(x-1,y-1)){
+			grid[x-1][y-1] = howNear(x-1,y-1);
+			if(grid[x-1][y-1] == '0'){
+				clear_empty(x-1,y-1);
+			}
+		}
+	}
+	if(x < domain){
+		if(!marked(x+1,y)){
+			grid[x+1][y] = howNear(x+1,y);
+			if(grid[x+1][y] == '0'){
+				clear_empty(x+1,y);
+			}
+		}
+	}
+	if(y < range){
+		if(!marked(x,y+1)){
+			grid[x][y+1] = howNear(x,y+1);
+			if(grid[x][y+1] == '0'){
+				clear_empty(x,y+1);
+			}
+		}
+	}
+	if(x < domain && y < range){
+		if(!marked(x+1,y+1)){
+			grid[x+1][y+1] = howNear(x+1,y+1);
+			if(grid[x+1][y+1] == '0'){
+				clear_empty(x+1,y+1);
+			}
+		}
+	}
+	if(x > 0 && y < range){
+		if(!marked(x-1,y+1)){
+			grid[x-1][y+1] = howNear(x-1,y+1);
+			if(grid[x-1][y+1] == '0'){
+				clear_empty(x-1,y+1);
+			}
+		}
+	}
+	if(x < domain && y > 0){
+		if(!marked(x+1,y-1)){
+			grid[x+1][y-1] = howNear(x+1,y-1);
+			if(grid[x+1][y-1] == '0'){
+				clear_empty(x+1,y-1);
+			}
+		}
+	}
+	return;
+}
+
+bool mineSweeper::isMine(unsigned x, unsigned y){
+	return (mines[x][y] == 'x'); 
+}
+
+char mineSweeper::howNear(unsigned x, unsigned y){
+	
+	unsigned short count = 0;
+	if(x > 0)
+		if(isMine(x-1,y)) count++;
+	if(x > 0 && y > 0)
+		if(isMine(x-1,y-1)) count++;
+	if(x > 0 && y < range)
+		if(isMine(x-1,y+1)) count++;
+	if(y > 0)
+		if(isMine(x,y-1)) count++;
+	if(y < range)
+		if(isMine(x,y+1)) count++;
+	if(x < domain && y > 0)
+		if(isMine(x+1,y-1)) count++;
+	if(x < domain)
+		if(isMine(x+1,y)) count++;
+	if(x < domain && y < range)
+		if(isMine(x+1,y+1)) count++;
+	
+	return '0'+count;
 }
 
 
