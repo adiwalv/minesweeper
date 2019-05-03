@@ -25,6 +25,11 @@ int main(int argc, char **argv){
 		if(input.length() > 2){
 			try{
 				v = split(input);
+if(v.size() < 2) {
+					cout << BOLD(FRED("Please use integers in the range of")) << " 0 " << BOLD(FRED("to " ))<< domain << '\n';
+					continue;
+				}
+				
 				xPos = stoi(v[0]);
 				yPos = stoi(v[1]);
 				
