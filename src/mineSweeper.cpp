@@ -17,7 +17,7 @@ bool mineSweeper::getMineHit() {
 }
 
 
-void mineSweeper::init_grid(){
+void grid::init_grid(){
 	srand(time(NULL));
 	for(auto &row : grid){
 		row.fill('#');
@@ -37,7 +37,7 @@ void mineSweeper::init_grid(){
 
 
 
-void mineSweeper::print_grid(){
+void grid::print_grid(){
 	unsigned short i;
 	cout<<endl;
 	cout << "    ";
